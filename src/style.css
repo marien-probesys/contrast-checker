@@ -1,0 +1,38 @@
+:root {
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+
+  background-color: #fff;
+}
+
+body {
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 200px;
+}
+
+select {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+
+  font-size: 1rem;
+}
+
+.flow > * + * {
+  margin-top: 1rem;
+}
+
+.flow--small > * + * {
+  margin-top: 0.5rem;
+}
+
+.cols {
+  display: flex;
+}
+
+.cols > * + * {
+  margin-left: 1rem;
+}
+
