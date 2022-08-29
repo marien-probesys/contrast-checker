@@ -12,7 +12,10 @@ const rgbColors = computed(() => props.colors.map((hslColor) => {
 
 const color = (index) => {
   const rgb = rgbColors.value[index];
+  const rgbContrast = (index === 10 || index === 11) ? rgbColors.value[0] : rgbColors.value[11];
+  const color = `rgb(${rgbContrast[0]}, ${rgbContrast[1]}, ${rgbContrast[2]})`;
   return {
+    color,
     backgroundColor: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`,
   };
 }
@@ -84,8 +87,8 @@ const checkTextColors = computed(() => {
     <div class="cols">
       <p class="blocks-label">Fonds principaux</p>
 
-      <div class="block" :style="color(0)" />
-      <div class="block" :style="color(1)" />
+      <div class="block" :style="color(0)">1</div>
+      <div class="block" :style="color(1)">2</div>
       <div class="block" />
 
       <div class="blocks-check">
@@ -96,9 +99,9 @@ const checkTextColors = computed(() => {
     <div class="cols">
       <p class="blocks-label">Fonds composants</p>
 
-      <div class="block" :style="color(2)" />
-      <div class="block" :style="color(3)" />
-      <div class="block" :style="color(4)" />
+      <div class="block" :style="color(2)">3</div>
+      <div class="block" :style="color(3)">4</div>
+      <div class="block" :style="color(4)">5</div>
 
       <div class="blocks-check">
         {{ checkComponentColors }}
@@ -108,9 +111,9 @@ const checkTextColors = computed(() => {
     <div class="cols">
       <p class="blocks-label">Bordures</p>
 
-      <div class="block" :style="color(5)" />
-      <div class="block" :style="color(6)" />
-      <div class="block" :style="color(7)" />
+      <div class="block" :style="color(5)">6</div>
+      <div class="block" :style="color(6)">7</div>
+      <div class="block" :style="color(7)">8</div>
 
       <div class="blocks-check">
         {{ checkBorderColors }}
@@ -120,8 +123,8 @@ const checkTextColors = computed(() => {
     <div class="cols">
       <p class="blocks-label">Fonds solides</p>
 
-      <div class="block" :style="color(8)" />
-      <div class="block" :style="color(9)" />
+      <div class="block" :style="color(8)">9</div>
+      <div class="block" :style="color(9)">10</div>
       <div class="block" />
 
       <div class="blocks-check">
@@ -132,8 +135,8 @@ const checkTextColors = computed(() => {
     <div class="cols">
       <p class="blocks-label">Texte</p>
 
-      <div class="block" :style="color(10)" />
-      <div class="block" :style="color(11)" />
+      <div class="block" :style="color(10)">11</div>
+      <div class="block" :style="color(11)">12</div>
       <div class="block" />
 
       <div class="blocks-check">
@@ -152,10 +155,13 @@ const checkTextColors = computed(() => {
 }
 
 .block {
+  display: flex;
   width: 50px;
   height: 50px;
 
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .blocks-check {
